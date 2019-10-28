@@ -13,15 +13,15 @@ void guess(Game &myGame)
 
         bool guessIsValid = false;
 
-        string playerNameLowered = player.name;
-        transform(playerNameLowered.begin(), playerNameLowered.end(), playerNameLowered.begin(), ::tolower);
-
         string suspectNameLowered = suspectName;
         transform(suspectNameLowered.begin(), suspectNameLowered.end(), suspectNameLowered.begin(), ::tolower);
 
         for (auto thePlayer : myGame.vectorOfPlayers)
         {
-            if (thePlayer.name == suspectName)
+            string playerNameLowered = thePlayer.name;
+            transform(playerNameLowered.begin(), playerNameLowered.end(), playerNameLowered.begin(), ::tolower);
+
+            if (playerNameLowered == suspectNameLowered)
             {
                 guessIsValid = true;
             }
