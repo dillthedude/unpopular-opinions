@@ -3,9 +3,10 @@
 void guess(Game &myGame)
 {
 	string suspectName;
-	cout << "Whose unpopular opinion is this?\n";
+	//cout << "Whose unpopular opinion is this?\n";
 	for (auto player : myGame.vectorOfPlayers)
 	{
+		cout << "Whose unpopular opinion is this?\n";
 		bool guessIsValid = false; // start off assuming that the guess is not valid
 		do
 		{
@@ -28,7 +29,10 @@ void guess(Game &myGame)
 			if (guessIsValid == false)
 				cout << "Guess is not valid. Please enter the name of a player.\nOpinion: ";
 			else
+			{
 				player.suspect = suspectName;
+				cout << endl;
+			}
 		}
 		while (guessIsValid == false);
 	}
