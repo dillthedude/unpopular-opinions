@@ -8,6 +8,8 @@ void determinePopularityOfOpinions(Game &myGame)
 
 	for (auto player : myGame.vectorOfPlayers)
 	{
+		numberOfPlayersWithStatedOpinion_int = -1;
+		numberOfPlayersWithStatedOpinion_String = "";
 		cout << player.opinion << endl;
 		cout << "How many players feel this way?";
 		getline(cin, numberOfPlayersWithStatedOpinion_String);
@@ -15,6 +17,8 @@ void determinePopularityOfOpinions(Game &myGame)
 		for (char &c : numberOfPlayersWithStatedOpinion_String)
 			if (!isdigit(c))
 				okToConvertStringToInt = false;
+		if (numberOfPlayersWithStatedOpinion_String == "")
+			okToConvertStringToInt = false;
 		if (okToConvertStringToInt == true)
 			numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
 
@@ -27,6 +31,8 @@ void determinePopularityOfOpinions(Game &myGame)
 			for (char &c : numberOfPlayersWithStatedOpinion_String)
 				if (!isdigit(c))
 					okToConvertStringToInt = false;
+			if (numberOfPlayersWithStatedOpinion_String == "")
+				okToConvertStringToInt = false;
 			if (okToConvertStringToInt == true)
 				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
 		}
