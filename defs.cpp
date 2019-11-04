@@ -10,24 +10,17 @@ void determinePopularityOfOpinions(Game &myGame)
 	{
 		numberOfPlayersWithStatedOpinion_int = -1;
 		numberOfPlayersWithStatedOpinion_String = "";
+		bool firstPass = true;
 		cout << player.opinion << endl;
-		cout << "How many players feel this way?";
-		getline(cin, numberOfPlayersWithStatedOpinion_String);
-		okToConvertStringToInt = true;
-		for (char &c : numberOfPlayersWithStatedOpinion_String)
-			if (!isdigit(c))
-				okToConvertStringToInt = false;
-		if (numberOfPlayersWithStatedOpinion_String == "")
-			okToConvertStringToInt = false;
-		if (okToConvertStringToInt == true)
-			numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
+		cout << "How many players feel this way? ";
 
-		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers))
+		do
 		{
-			cout << "Your input was not valid. Please enter a number from 1 to " << myGame.numberOfPlayers << endl;
+			if(!firstPass)
+				cout << "Your input was not valid. Please enter a number from 1 to " << myGame.numberOfPlayers << endl;
+			firstPass = false;
 			getline(cin, numberOfPlayersWithStatedOpinion_String);
 			okToConvertStringToInt = true;
-
 			for (char &c : numberOfPlayersWithStatedOpinion_String)
 				if (!isdigit(c))
 					okToConvertStringToInt = false;
@@ -36,7 +29,7 @@ void determinePopularityOfOpinions(Game &myGame)
 			if (okToConvertStringToInt == true)
 				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
 		}
-
+		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
 		cout << "Good. Very good.\n";
 	}
 }
