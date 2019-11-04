@@ -24,5 +24,13 @@ int main()
 
     determinePopularityOfOpinions(myGame);
 
+    for(auto player : myGame.vectorOfPlayers)
+    {
+        cout << "Player Name: " << player.name << endl;
+        cout << "Player Opinion: " << player.opinion << endl;
+        cout << "Suspected Player: " << player.suspect << endl;
+        cout << "Number of players with this opinion: " << player.numberOfPlayersWithThisOpinion << endl << endl;
+    }
+
     return 0;
 }

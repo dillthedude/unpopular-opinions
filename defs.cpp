@@ -30,6 +30,7 @@ void determinePopularityOfOpinions(Game &myGame)
 				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
 		}
 		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
+		player.numberOfPlayersWithThisOpinion = numberOfPlayersWithStatedOpinion_int;
 		cout << "Good. Very good.\n";
 	}
 }
