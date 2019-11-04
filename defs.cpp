@@ -1,9 +1,43 @@
 #include "defs.h"
 
+void determinePopularityOfOpinions(Game &myGame)
+{
+	string numberOfPlayersWithStatedOpinion_String;
+	int numberOfPlayersWithStatedOpinion_int = -1;
+	bool okToConvertStringToInt = true;
+
+	for (auto player : myGame.vectorOfPlayers)
+	{
+		cout << player.opinion << endl;
+		cout << "How many players feel this way?";
+		getline(cin, numberOfPlayersWithStatedOpinion_String);
+		okToConvertStringToInt = true;
+		for (char &c : numberOfPlayersWithStatedOpinion_String)
+			if (!isdigit(c))
+				okToConvertStringToInt = false;
+		if (okToConvertStringToInt == true)
+			numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
+
+		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers))
+		{
+			cout << "Your input was not valid. Please enter a number from 1 to " << myGame.numberOfPlayers << endl;
+			getline(cin, numberOfPlayersWithStatedOpinion_String);
+			okToConvertStringToInt = true;
+
+			for (char &c : numberOfPlayersWithStatedOpinion_String)
+				if (!isdigit(c))
+					okToConvertStringToInt = false;
+			if (okToConvertStringToInt == true)
+				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
+		}
+
+		cout << "Good. Very good.\n";
+	}
+}
+
 void guess(Game &myGame)
 {
 	string suspectName;
-	//cout << "Whose unpopular opinion is this?\n";
 	for (auto player : myGame.vectorOfPlayers)
 	{
 		cout << "Whose unpopular opinion is this?\n";
@@ -33,8 +67,7 @@ void guess(Game &myGame)
 				player.suspect = suspectName;
 				cout << endl;
 			}
-		}
-		while (guessIsValid == false);
+		} while (guessIsValid == false);
 	}
 }
 

@@ -19,8 +19,10 @@ int main()
     registerPlayers(myGame);
     enterOpinions(myGame);
     myGame = randomizePlayerOrder(myGame);
-
     guess(myGame);
+    myGame = randomizePlayerOrder(myGame);
+
+    determinePopularityOfOpinions(myGame);
 
     return 0;
 }
