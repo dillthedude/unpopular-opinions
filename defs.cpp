@@ -38,7 +38,7 @@ void determinePopularityOfOpinions(Game &myGame)
 void guess(Game &myGame)
 {
 	string suspectName;
-	for (auto player : myGame.vectorOfPlayers)
+	for (auto &player : myGame.vectorOfPlayers)
 	{
 		cout << "Whose unpopular opinion is this?\n";
 		bool guessIsValid = false; // start off assuming that the guess is not valid
