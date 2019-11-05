@@ -6,7 +6,7 @@ void determinePopularityOfOpinions(Game &myGame)
 	int numberOfPlayersWithStatedOpinion_int = -1;
 	bool okToConvertStringToInt = true;
 
-	for (auto player : myGame.vectorOfPlayers)
+	for (auto &player : myGame.vectorOfPlayers)
 	{
 		numberOfPlayersWithStatedOpinion_int = -1;
 		numberOfPlayersWithStatedOpinion_String = "";
@@ -16,7 +16,7 @@ void determinePopularityOfOpinions(Game &myGame)
 
 		do
 		{
-			if(!firstPass)
+			if (!firstPass)
 				cout << "Your input was not valid. Please enter a number from 1 to " << myGame.numberOfPlayers << endl;
 			firstPass = false;
 			getline(cin, numberOfPlayersWithStatedOpinion_String);
@@ -31,7 +31,7 @@ void determinePopularityOfOpinions(Game &myGame)
 		}
 		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
 		player.numberOfPlayersWithThisOpinion = numberOfPlayersWithStatedOpinion_int;
-		cout << "Good. Very good.\n";
+		cout << endl;
 	}
 }
 
