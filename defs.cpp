@@ -1,5 +1,13 @@
 #include "defs.h"
 
+void awardPoints(Game &myGame)
+{
+	cout << "Time to award points!\n";
+
+	
+	return;
+}
+
 void determinePopularityOfOpinions(Game &myGame)
 {
 	string numberOfPlayersWithStatedOpinion_String;
