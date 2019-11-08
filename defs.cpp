@@ -2,9 +2,34 @@
 
 void awardPoints(Game &myGame)
 {
-	cout << "Time to award points!\n";
+	int pointsWon = 0;
 
-	
+	cout << "Time to award points!\n\n";
+	for(auto player : myGame.vectorOfPlayers)
+	{
+		cout << "Opinion: " << player.opinion << endl;
+		cout << "Suspect: " << player.suspect << endl;
+		cout << "It was " << player.name << "'s opinion!\n";
+		cout << player.numberOfPlayersWithThisOpinion << " out of " << myGame.vectorOfPlayers.size() << " players hold this opinion. This opinion is ";
+		if( (myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion) >= 2)
+			cout << "UNPOPULAR. ";
+		else
+			cout << "POPULAR. ";
+
+		if(player.numberOfPlayersWithThisOpinion != 0)
+			pointsWon = myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion;
+		player.pointsAwarded += pointsWon;
+
+		if(pointsWon == 1)
+			cout << pointsWon << " point awarded.\n";
+		else
+			cout << pointsWon << " points awarded.\n";
+		cout << player.name << "'s total points: " << player.pointsAwarded << endl;
+
+		cout << endl;
+		
+	}
+
 	return;
 }
 
@@ -13,6 +38,8 @@ void determinePopularityOfOpinions(Game &myGame)
 	string numberOfPlayersWithStatedOpinion_String;
 	int numberOfPlayersWithStatedOpinion_int = -1;
 	bool okToConvertStringToInt = true;
+
+	cout << "Next phase!\n";
 
 	for (auto &player : myGame.vectorOfPlayers)
 	{
