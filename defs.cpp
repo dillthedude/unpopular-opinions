@@ -1,5 +1,12 @@
 #include "defs.h"
 
+void showRules()
+{
+	cout << "\t\t\t- - - - -\n";
+	cout << "\t\t\tR U L E S\n";
+	cout << "\t\t\t- - - - -\n";
+}
+
 string lowerString(string name)
 {
 	string loweredName = name;
@@ -177,7 +184,7 @@ void exitProgram()
 
 bool verifyTitleSelection(const string userSelection)
 {
-	if ((userSelection != "1") && (userSelection != "2"))
+	if ((userSelection != "1") && (userSelection != "2") && (userSelection != "3") )
 		return false;
 	else
 		return true;
@@ -200,6 +207,8 @@ int acceptTitleSelection()
 		return 2;
 	else if (userSelection == "1")
 		return 1;
+	else if (userSelection == "3")
+		return 3;
 	else
 		cout << "ERROR in acceptTitleSelection\n";
 
@@ -215,7 +224,8 @@ void showTitle()
 	cout << "\n";
 
 	cout << " 1)\tNew Game\n"
-		 << " 2)\tQuit\n";
+		 << " 2)\tRules\n"
+		 << " 3)\tQuit\n";
 
 	return;
 }

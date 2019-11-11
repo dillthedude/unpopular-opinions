@@ -7,32 +7,27 @@ int main()
     Game myGame;
     int titleSelection = -1;
 
-    showTitle(); // title screen
-    titleSelection = acceptTitleSelection();
-    if (titleSelection == -1)
-        cout << "ERROR in main(), titleSelection == -1"; // for testing purposes only
-    if (titleSelection == 2)
+    do
     {
-        exitProgram();
-        return 0;
-    }
+        showTitle(); // title screen
+        titleSelection = acceptTitleSelection();
+        if (titleSelection == -1)
+            cout << "ERROR in main(), titleSelection == -1"; // for testing purposes only
+        if (titleSelection == 3)
+        {
+            exitProgram();
+            return 0;
+        }
+        if (titleSelection == 2)
+            showRules();
+    } while (titleSelection != 1);
     registerPlayers(myGame);
     enterOpinions(myGame);
     myGame = randomizePlayerOrder(myGame);
     guess(myGame);
     myGame = randomizePlayerOrder(myGame);
     determinePopularityOfOpinions(myGame);
-
     awardPoints(myGame);
-
-    /*
-    for(auto player : myGame.vectorOfPlayers)
-    {
-        cout << "Player Name: " << player.name << endl;
-        cout << "Player Opinion: " << player.opinion << endl;
-        cout << "Suspected Player: " << player.suspect << endl;
-        cout << "Number of players with this opinion: " << player.numberOfPlayersWithThisOpinion << endl << endl;
-    }*/
 
     return 0;
 }
