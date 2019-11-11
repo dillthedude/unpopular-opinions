@@ -2,32 +2,34 @@
 
 void awardPoints(Game &myGame)
 {
-	int pointsWon = 0;
+	int pointsWon;
 
 	cout << "Time to award points!\n\n";
-	for(auto player : myGame.vectorOfPlayers)
+	for (auto player : myGame.vectorOfPlayers)
 	{
+		pointsWon = 0;
 		cout << "Opinion: " << player.opinion << endl;
 		cout << "Suspect: " << player.suspect << endl;
 		cout << "It was " << player.name << "'s opinion!\n";
 		cout << player.numberOfPlayersWithThisOpinion << " out of " << myGame.vectorOfPlayers.size() << " players hold this opinion. This opinion is ";
-		if( (myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion) >= 2)
+		if (player.numberOfPlayersWithThisOpinion == 0)
+			cout << "VERY UNPOPULAR. :[ ";
+		else if ((myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion) >= 2)
 			cout << "UNPOPULAR. ";
 		else
 			cout << "POPULAR. ";
 
-		if(player.numberOfPlayersWithThisOpinion != 0)
+		if (player.numberOfPlayersWithThisOpinion != 0)
 			pointsWon = myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion;
 		player.pointsAwarded += pointsWon;
 
-		if(pointsWon == 1)
+		if (pointsWon == 1)
 			cout << pointsWon << " point awarded.\n";
 		else
 			cout << pointsWon << " points awarded.\n";
 		cout << player.name << "'s total points: " << player.pointsAwarded << endl;
 
 		cout << endl;
-		
 	}
 
 	return;
@@ -63,8 +65,7 @@ void determinePopularityOfOpinions(Game &myGame)
 				okToConvertStringToInt = false;
 			if (okToConvertStringToInt == true)
 				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
-		}
-		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
+		} while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
 		player.numberOfPlayersWithThisOpinion = numberOfPlayersWithStatedOpinion_int;
 		cout << endl;
 	}
