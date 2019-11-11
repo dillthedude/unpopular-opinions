@@ -9,6 +9,7 @@ using std::endl;
 using std::getline;
 using std::string;
 
+string lowerString(string name);
 void awardPoints(Game & myGame);
 void determinePopularityOfOpinions(Game & myGame);
 void guess(Game & myGame);

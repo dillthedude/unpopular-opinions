@@ -1,5 +1,12 @@
 #include "defs.h"
 
+string lowerString(string name)
+{
+	string loweredName = name;
+	transform(loweredName.begin(), loweredName.end(), loweredName.begin(), ::tolower);
+	return loweredName;
+}
+
 void awardPoints(Game &myGame)
 {
 	int pointsWon;
@@ -19,7 +26,7 @@ void awardPoints(Game &myGame)
 		else
 			cout << "POPULAR. ";
 
-		if (player.numberOfPlayersWithThisOpinion != 0)
+		if (player.numberOfPlayersWithThisOpinion != 0 && (lowerString(player.name) != lowerString(player.suspect)) )
 			pointsWon = myGame.vectorOfPlayers.size() / player.numberOfPlayersWithThisOpinion;
 		player.pointsAwarded += pointsWon;
 
@@ -65,7 +72,8 @@ void determinePopularityOfOpinions(Game &myGame)
 				okToConvertStringToInt = false;
 			if (okToConvertStringToInt == true)
 				numberOfPlayersWithStatedOpinion_int = stoi(numberOfPlayersWithStatedOpinion_String);
-		} while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
+		}
+		while ((numberOfPlayersWithStatedOpinion_int < 0) || (numberOfPlayersWithStatedOpinion_int > myGame.numberOfPlayers));
 		player.numberOfPlayersWithThisOpinion = numberOfPlayersWithStatedOpinion_int;
 		cout << endl;
 	}
