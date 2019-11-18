@@ -2,9 +2,17 @@
 
 void showRules()
 {
+	const char bulletL = 60;	
+	const char bulletR = 62;
 	cout << "\t\t\t- - - - -\n";
 	cout << "\t\t\tR U L E S\n";
 	cout << "\t\t\t- - - - -\n";
+	cout << endl;
+	cout << " " << bulletL << bulletR << " Rule number one.\n";
+	cout << " " << bulletL << bulletR << " Rule number two.\n";
+	cout << " " << bulletL << bulletR << " Rule number three.\n";
+	cout << endl;
+
 }
 
 string lowerString(string name)
