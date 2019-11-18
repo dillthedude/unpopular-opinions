@@ -7,9 +7,10 @@ int main()
     Game myGame;
     int titleSelection = -1;
 
+    showTitle(); // title
     do
     {
-        showTitle(); // title screen
+        showTitleOptions();
         titleSelection = acceptTitleSelection();
         if (titleSelection == -1)
             cout << "ERROR in main(), titleSelection == -1"; // for testing purposes only

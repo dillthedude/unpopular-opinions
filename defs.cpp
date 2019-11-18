@@ -215,6 +215,15 @@ int acceptTitleSelection()
 	return 0;
 }
 
+void showTitleOptions()
+{
+	
+
+	cout << " 1)\tNew Game\n"
+		 << " 2)\tRules\n"
+		 << " 3)\tQuit\n";
+}
+
 void showTitle()
 {
 	//cout << std::string(100, '\n');
@@ -222,10 +231,4 @@ void showTitle()
 	cout << "\t\t\tU N P O P U L A R   O P I N I O N S\n";
 	cout << "\t\t\t- - - - - - - - - - - - - - - - - -\n";
 	cout << "\n";
-
-	cout << " 1)\tNew Game\n"
-		 << " 2)\tRules\n"
-		 << " 3)\tQuit\n";
-
-	return;
 }

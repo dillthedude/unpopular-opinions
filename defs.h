@@ -19,4 +19,5 @@ void registerPlayers(Game & myGame);
 void exitProgram();
 bool verifyTitleSelection(const string userSelection);
 int acceptTitleSelection();
+void showTitleOptions();
 void showTitle();
