@@ -2,15 +2,21 @@
 
 void showRules()
 {
-	const char bulletL = 60;	
-	const char bulletR = 62;
+	string rule1 = "Rule number one.";
+	string rule2 = "Rule number two.";
+	string rule3 = "Rule number three.";
+	string rule4 = "Rule number four.";
+	string rule5 = "Rule number five.";
+	
 	cout << "\t\t\t- - - - -\n";
 	cout << "\t\t\tR U L E S\n";
 	cout << "\t\t\t- - - - -\n";
 	cout << endl;
-	cout << " " << bulletL << bulletR << " Rule number one.\n";
-	cout << " " << bulletL << bulletR << " Rule number two.\n";
-	cout << " " << bulletL << bulletR << " Rule number three.\n";
+	cout << " \u261b " << rule1 << endl;
+	cout << " \u261b " << rule2 << endl;
+	cout << " \u261b " << rule3 << endl;
+	cout << " \u261b " << rule4 << endl;
+	cout << " \u261b " << rule5 << endl;
 	cout << endl;
 
 }
