@@ -30,5 +30,7 @@ int main()
     determinePopularityOfOpinions(myGame);
     awardPoints(myGame);
 
+    showStandings(myGame);
+
     return 0;
 }

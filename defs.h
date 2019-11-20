@@ -9,6 +9,7 @@ using std::endl;
 using std::getline;
 using std::string;
 
+void showStandings(Game & myGame);
 void showRules();
 string lowerString(string name);
 void awardPoints(Game & myGame);

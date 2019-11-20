@@ -1,5 +1,11 @@
 #include "defs.h"
 
+void showStandings(Game &myGame)
+{
+	cout << "Current standings:\n\n";
+	
+}
+
 void showRules()
 {
 	string rule1 = "Rule number one.";
@@ -56,7 +62,6 @@ void awardPoints(Game &myGame)
 		else
 			cout << pointsWon << " points awarded.\n";
 		cout << player.name << "'s total points: " << player.pointsAwarded << endl;
-
 		cout << endl;
 	}
 
