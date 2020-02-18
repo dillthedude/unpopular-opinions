@@ -29,7 +29,7 @@ int main()
     myGame = randomizePlayerOrder(myGame);
     determinePopularityOfOpinions(myGame);
     awardPoints(myGame);
-
+    orderPlayersByPoints(myGame);
     showStandings(myGame);
 
     return 0;

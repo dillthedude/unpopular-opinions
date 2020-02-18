@@ -1,9 +1,67 @@
 #include "defs.h"
+//#include <bits/stdc++.h> // used to sort vector of points
+
+void orderPlayersByPoints(Game &myGame)
+{
+
+
+	/*
+	vector<Player> vectorOfPlayersOrderedByPoints;
+	vector<int> vectorOfPoints;
+	for(auto player : myGame.vectorOfPlayers)
+		vectorOfPoints.push_back(player.pointsAwarded);
+	sort(vectorOfPoints.begin(), vectorOfPoints.end());
+
+	while(!myGame.vectorOfPlayers.empty()) // while the vector of players is not empty
+	{
+		for(auto player : myGame.vectorOfPlayers)
+		{
+			if(player.pointsAwarded == vectorOfPoints.back())
+			{
+				myGame.vectorOfPlayers
+				vectorOfPoints.pop_back();
+			}
+		}
+	}
+
+	myGame.vectorOfPlayers = vectorOfPlayersOrderedByPoints;*/
+
+
+
+	/*
+	vector<Player> vectorOfPlayersOrderedByPoints;
+	while(myGame.vectorOfPlayers.size() != 0) // while we are still ordering the players by points
+	{
+		// first find the highest point value
+		int maxPoints = 0;
+		for(auto myPlayer : myGame.vectorOfPlayers)
+			if(myPlayer.pointsAwarded > maxPoints)
+				maxPoints = myPlayer.pointsAwarded;
+
+		// then take all players with that many points
+		vector<Player>::const_iterator it;
+		int index = 0;
+		for(it = myGame.vectorOfPlayers.begin(); it != myGame.vectorOfPlayers.end(); ++it)
+		{
+			index++;
+			if(it->pointsAwarded == maxPoints)
+			{
+				vectorOfPlayersOrderedByPoints.push_back(myGame.vectorOfPlayers.at(index)); // add the player to the new vector
+				myGame.vectorOfPlayers.erase(it); // remove the player from the old vector
+			}
+		}
+	}
+	myGame.vectorOfPlayers = vectorOfPlayersOrderedByPoints;*/
+}
 
 void showStandings(Game &myGame)
 {
 	cout << "Current standings:\n\n";
 	
+	for(auto myPlayer : myGame.vectorOfPlayers)
+	{
+		cout << myPlayer.name << "\t\t" << myPlayer.pointsAwarded << endl;
+	}
 }
 
 void showRules()
@@ -18,11 +76,20 @@ void showRules()
 	cout << "\t\t\tR U L E S\n";
 	cout << "\t\t\t- - - - -\n";
 	cout << endl;
+	#ifdef __linux__
 	cout << " \u261b " << rule1 << endl;
 	cout << " \u261b " << rule2 << endl;
 	cout << " \u261b " << rule3 << endl;
 	cout << " \u261b " << rule4 << endl;
 	cout << " \u261b " << rule5 << endl;
+	#endif
+	#ifdef _WIN32
+	cout << " - " << rule1 << endl;
+	cout << " - " << rule2 << endl;
+	cout << " - " << rule3 << endl;
+	cout << " - " << rule4 << endl;
+	cout << " - " << rule5 << endl;
+	#endif
 	cout << endl;
 
 }
@@ -39,7 +106,7 @@ void awardPoints(Game &myGame)
 	int pointsWon;
 
 	cout << "Time to award points!\n\n";
-	for (auto player : myGame.vectorOfPlayers)
+	for (auto &player : myGame.vectorOfPlayers)
 	{
 		pointsWon = 0;
 		cout << "Opinion: " << player.opinion << endl;

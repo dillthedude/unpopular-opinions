@@ -2,13 +2,19 @@
 #include <iostream>
 #include <string>
 #include "Game.h"
-#include<bits/stdc++.h> // this is for transform() function in function guess()
+#ifdef __linux__
+#include<bits/stdc++.h> // this is for transform() function in function guess() (linux)
+#endif
+#ifdef _WIN32
+#include <algorithm> // this is for transform() function in function guess() (windows)
+#endif
 using std::cin;
 using std::cout;
 using std::endl;
 using std::getline;
 using std::string;
 
+void orderPlayersByPoints(Game & myGame);
 void showStandings(Game & myGame);
 void showRules();
 string lowerString(string name);
